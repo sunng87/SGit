@@ -45,8 +45,8 @@ public class ChooseCommitDialog extends SheimiDialogFragment {
 
         String[] branches = mRepo.getBranches();
         String[] tags = mRepo.getTags();
-        mAdapter.addAll(branches);
-        mAdapter.addAll(tags);
+        mAdapter.adapterAddAll(branches);
+        mAdapter.adapterAddAll(tags);
 
         builder.setTitle(R.string.dialog_choose_branch_title);
         mBranchTagList

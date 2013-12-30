@@ -34,7 +34,7 @@ public class RebaseAction extends RepoAction {
     public void execute() {
         RebaseDialog rd = new RebaseDialog();
         rd.setArguments(mRepo.getBundle());
-        rd.show(mActivity.getFragmentManager(), "rebase-dialog");
+        rd.show(mActivity.getSupportFragmentManager(), "rebase-dialog");
         mActivity.closeOperationDrawer();
     }
 

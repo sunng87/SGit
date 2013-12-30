@@ -11,15 +11,12 @@ import me.sheimi.sgit.fragments.CommitsFragment;
 import me.sheimi.sgit.fragments.FilesFragment;
 import me.sheimi.sgit.fragments.StatusFragment;
 import me.sheimi.sgit.repo.tasks.SheimiAsyncTask.AsyncTaskCallback;
-import android.app.ActionBar;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -29,6 +26,10 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class RepoDetailActivity extends SheimiFragmentActivity {
 
@@ -80,7 +81,7 @@ public class RepoDetailActivity extends SheimiFragmentActivity {
             public void onClick(View view) {
                 ChooseCommitDialog cbd = new ChooseCommitDialog();
                 cbd.setArguments(mRepo.getBundle());
-                cbd.show(getFragmentManager(), "choose-branch-dialog");
+                cbd.show(getSupportFragmentManager(), "choose-branch-dialog");
             }
         });
         String branchName = mRepo.getBranchName();
@@ -100,7 +101,7 @@ public class RepoDetailActivity extends SheimiFragmentActivity {
 
     private void setupViewPager() {
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mTabItemPagerAdapter = new TabItemPagerAdapter(getFragmentManager());
+        mTabItemPagerAdapter = new TabItemPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mTabItemPagerAdapter);
     }
 
@@ -126,7 +127,7 @@ public class RepoDetailActivity extends SheimiFragmentActivity {
     }
 
     private void setupActionBar() {
-        mActionBar = getActionBar();
+        mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowTitleEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
     }
@@ -188,7 +189,7 @@ public class RepoDetailActivity extends SheimiFragmentActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.repo_detail, menu);
+        getSupportMenuInflater().inflate(R.menu.repo_detail, menu);
         return true;
     }
 

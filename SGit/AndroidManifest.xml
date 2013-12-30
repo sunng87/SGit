@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.sheimi.sgit"
-    android:versionCode="102"
-    android:versionName="1.2.4" >
+    android:versionCode="26"
+    android:versionName="1.2.3-android-2.x" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />

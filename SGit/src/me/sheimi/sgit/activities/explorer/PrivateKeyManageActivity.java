@@ -9,10 +9,11 @@ import me.sheimi.sgit.dialogs.RenameKeyDialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class PrivateKeyManageActivity extends FileExplorerActivity {
 
@@ -52,7 +53,7 @@ public class PrivateKeyManageActivity extends FileExplorerActivity {
                         file.getAbsolutePath());
                 RenameKeyDialog rkd = new RenameKeyDialog();
                 rkd.setArguments(pathArg);
-                rkd.show(getFragmentManager(), "rename-dialog");
+                rkd.show(getSupportFragmentManager(), "rename-dialog");
                 return true;
             }
         };
@@ -61,7 +62,7 @@ public class PrivateKeyManageActivity extends FileExplorerActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.private_key_manage, menu);
+        getSupportMenuInflater().inflate(R.menu.private_key_manage, menu);
         return true;
     }
 

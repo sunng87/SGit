@@ -74,7 +74,7 @@ public class RepoListAdapter extends SheimiArrayAdapter<Repo> implements
         Collections.sort(repo);
         cursor.close();
         clear();
-        addAll(repo);
+        adapterAddAll(repo);
         notifyDataSetChanged();
     }
 

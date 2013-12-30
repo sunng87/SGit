@@ -2,6 +2,7 @@ package me.sheimi.sgit.activities.delegate.actions;
 
 import java.util.Set;
 
+import me.sheimi.android.views.SheimiArrayAdapter;
 import me.sheimi.android.views.SheimiDialogFragment;
 import me.sheimi.sgit.R;
 import me.sheimi.sgit.activities.RepoDetailActivity;
@@ -15,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
@@ -34,7 +34,7 @@ public class PushAction extends RepoAction {
         }
         PushDialog pd = new PushDialog();
         pd.setArguments(mRepo.getBundle());
-        pd.show(mActivity.getFragmentManager(), "push-repo-dialog");
+        pd.show(mActivity.getSupportFragmentManager(), "push-repo-dialog");
         mActivity.closeOperationDrawer();
     }
 
@@ -51,7 +51,7 @@ public class PushAction extends RepoAction {
         private RepoDetailActivity mActivity;
         private CheckBox mPushAll;
         private ListView mRemoteList;
-        private ArrayAdapter<String> mAdapter;
+        private SheimiArrayAdapter<String> mAdapter;
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -69,10 +69,10 @@ public class PushAction extends RepoAction {
             mPushAll = (CheckBox) layout.findViewById(R.id.pushAll);
             mRemoteList = (ListView) layout.findViewById(R.id.remoteList);
 
-            mAdapter = new ArrayAdapter<String>(mActivity,
+            mAdapter = new SheimiArrayAdapter<String>(mActivity,
                     android.R.layout.simple_list_item_1);
             Set<String> remotes = mRepo.getRemotes();
-            mAdapter.addAll(remotes);
+            mAdapter.adapterAddAll(remotes);
             mRemoteList.setAdapter(mAdapter);
 
             mRemoteList.setOnItemClickListener(new OnItemClickListener() {

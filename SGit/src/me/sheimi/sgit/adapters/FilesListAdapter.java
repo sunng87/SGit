@@ -78,7 +78,7 @@ public class FilesListAdapter extends SheimiArrayAdapter<File> {
                 return file1.isDirectory() ? -1 : 1;
             }
         });
-        addAll(files);
+        adapterAddAll(files);
         notifyDataSetChanged();
     }
 

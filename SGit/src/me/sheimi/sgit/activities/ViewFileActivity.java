@@ -16,14 +16,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
+
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class ViewFileActivity extends SheimiFragmentActivity {
 
@@ -42,7 +43,7 @@ public class ViewFileActivity extends SheimiFragmentActivity {
 
     private void initViewFile() {
         setContentView(R.layout.activity_view_file);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mFileContent = (WebView) findViewById(R.id.fileContent);
         mLoading = (ProgressBar) findViewById(R.id.loading);
 
@@ -88,7 +89,7 @@ public class ViewFileActivity extends SheimiFragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.view_file, menu);
+        getSupportMenuInflater().inflate(R.menu.view_file, menu);
         MenuItem mi = menu.findItem(R.id.action_edit);
         if (mEditMode) {
             mi.setIcon(R.drawable.ic_action_save);
@@ -135,7 +136,7 @@ public class ViewFileActivity extends SheimiFragmentActivity {
                 return true;
             case R.id.action_choose_language:
                 ChooseLanguageDialog cld = new ChooseLanguageDialog();
-                cld.show(getFragmentManager(), "choose language");
+                cld.show(getSupportFragmentManager(), "choose language");
                 return true;
         }
         return super.onOptionsItemSelected(item);

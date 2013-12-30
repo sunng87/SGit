@@ -14,24 +14,25 @@ import me.sheimi.sgit.database.models.Repo;
 import org.eclipse.jgit.revwalk.RevCommit;
 
 import android.app.Activity;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ActionMode;
+import android.text.ClipboardManager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 /**
  * Created by sheimi on 8/5/13.
  */
+@SuppressWarnings("deprecation")
 public class CommitsFragment extends RepoDetailFragment implements
         ActionMode.Callback {
 
@@ -216,8 +217,7 @@ public class CommitsFragment extends RepoDetailFragment implements
                 }
                 int item = mChosenItem.iterator().next();
                 String commit = mCommitsListAdapter.getItem(item).getName();
-                ClipData clip = ClipData.newPlainText("commit_to_copy", commit);
-                mClipboard.setPrimaryClip(clip);
+                mClipboard.setText(commit);
                 showToastMessage(R.string.msg_commit_str_has_copied);
                 actionMode.finish();
                 return true;

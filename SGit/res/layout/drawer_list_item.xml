@@ -7,12 +7,14 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/activatedBackgroundIndicator"
+        android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="18sp"
         android:textColor="#333" />
+
 
 </RelativeLayout>

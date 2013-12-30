@@ -15,10 +15,11 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Environment;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class ImportRepositoryActivity extends FileExplorerActivity {
 
@@ -42,7 +43,7 @@ public class ImportRepositoryActivity extends FileExplorerActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.import_repo, menu);
+        getSupportMenuInflater().inflate(R.menu.import_repo, menu);
         return true;
     }
 

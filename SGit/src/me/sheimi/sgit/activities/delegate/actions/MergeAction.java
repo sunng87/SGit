@@ -34,7 +34,7 @@ public class MergeAction extends RepoAction {
     public void execute() {
         MergeDialog md = new MergeDialog();
         md.setArguments(mRepo.getBundle());
-        md.show(mActivity.getFragmentManager(), "merge-repo-dialog");
+        md.show(mActivity.getSupportFragmentManager(), "merge-repo-dialog");
         mActivity.closeOperationDrawer();
     }
 
